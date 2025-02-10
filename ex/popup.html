@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Configuration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Database Configuration</h2>
+        <form id="config-form">
+            <label for="db-name">Database Name:</label>
+            <input type="text" id="db-name" placeholder="Enter database name" required>
+
+            <label for="collection-name">Collection Name:</label>
+            <input type="text" id="collection-name" placeholder="Enter collection name" required>
+
+            <label for="url">URL:</label>
+            <input type="url" id="url" placeholder="Enter URL" required>
+
+            <label for="file-name">File Name:</label>
+            <input type="text" id="file-name" placeholder="Enter file name (e.g., config.json)" required>
+
+            <button type="submit">Save Configuration</button>
+        </form>
+
+        <hr>
+
+        <!-- اضافه کردن فایل JSON -->
+        <label for="json-file">Select Configuration File (JSON):</label>
+        <input type="file" id="json-file" accept=".json">
+
+        <!-- مسیر دایرکتوری -->
+        <label for="crawl-directory">Directory Path:</label>
+        <input type="text" id="crawl-directory" placeholder="Enter directory path" required>
+
+        <!-- دکمه برای اجرای Crawl and Fetch -->
+        <button id="run-crawler">Start Crawl and Fetch</button>
+    </div>
+
+    <div id="log-container" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; height: 150px; overflow-y: auto; background-color: #f9f9f9;">
+        <strong>Logs:</strong>
+        <div id="logs"></div>
+    </div>
+
+    <hr>
+
+    <!-- فرم جدید برای جمع‌آوری داده‌ها -->
+    <div class="container">
+        <h2>Action Configuration</h2>
+        <form id="action-form">
+            <label for="action-type">Action Type:</label>
+            <select id="action-type">
+                <option value="input">Input</option>
+                <option value="click">Click</option>
+            </select>
+
+            <label for="selector">Selector:</label>
+            <input type="text" id="selector" placeholder="Enter selector" required>
+
+            <label for="value">Value:</label>
+            <input type="text" id="value" placeholder="Enter value" required>
+
+            <label for="expected-error-selector">Expected Error Selector:</label>
+            <input type="text" id="expected-error-selector" placeholder="Enter expected error selector" required>
+
+            <label for="invalid-values">Invalid Values (comma-separated):</label>
+            <input type="text" id="invalid-values" placeholder="Enter invalid values" required>
+
+            <label for="max-length">Max Length:</label>
+            <input type="number" id="max-length" placeholder="Enter max length" required>
+
+            <label for="contains-digits">Contains Digits:</label>
+            <input type="checkbox" id="contains-digits">
+
+            <label for="allowed-characters">Allowed Characters (Regex):</label>
+            <input type="text" id="allowed-characters" placeholder="Enter allowed characters" required>
+
+            <button type="submit">Save Action</button>
+        </form>
+
+        <button id="delete-action">Delete Action</button>
+        <button id="export-json">Export to JSON</button>
+
+        <div id="action-log-container" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; height: 150px; overflow-y: auto; background-color: #f9f9f9;">
+            <strong>Actions List:</strong>
+            <div id="action-logs"></div>
+        </div>
+    </div>
+
+    <!-- دکمه شروع ضبط -->
+        <button id="start-recording">Start Recording</button>
+        
+        <div id="recording-status" style="margin-top: 10px; color: green; display: none;">
+            Recording user actions...
+        </div>
+
+        <hr>
+
+        <h2>Logs</h2>
+        <div id="log-container" style="margin-top: 10px; padding: 10px; border: 1px solid #ccc; height: 150px; overflow-y: auto; background-color: #f9f9f9;">
+            <strong>Logs:</strong>
+            <div id="logs"></div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

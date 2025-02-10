@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Database Configuration",
+  "version": "1.1",
+  "description": "A browser extension for configuring database settings via a FastAPI backend.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*"
+  ],
+  "action": {},
+  "background": {
+    "service_worker": "background.js"
+  }
+}
