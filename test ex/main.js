@@ -23,6 +23,8 @@ const allowedCharactersInput = document.getElementById("allowedCharactersInput")
 const rulesSaveButton = document.getElementById("rulesSave");
 const fileInput = document.createElement("input");
 
+const suggestions = ["abcdefghij", "!@#$%^&*()", "1234abcd"];
+
 fileInput.type = "file";
 fileInput.accept = "application/json";
 
