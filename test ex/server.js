@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const { exec } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 
 // اتصال به MongoDB
 mongoose.connect('mongodb://localhost:27017/userActions', {
@@ -89,6 +92,32 @@ app.get('/actions/download', async (req, res) => {
   } catch (error) {
     res.status(500).send(error);
   }
+});
+
+// مسیر برای اجرای فایل main.py
+app.post('/run-tests', (req, res) => {
+  const { fileContent } = req.body;
+  const tempFilePath = path.join(__dirname, 'temp.json');
+
+  fs.writeFile(tempFilePath, fileContent, (err) => {
+    if (err) {
+      console.error(`Error writing temp file: ${err}`);
+      return res.status(500).send(`Error writing temp file: ${err.message}`);
+    }
+
+    exec(`python "C:\\Users\\mohmmad moein\\Desktop\\crawl-extension-main\\test ex\\test program\\main.py" "${tempFilePath}"`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing script: ${error}`);
+        return res.status(500).send(`Error executing script: ${error.message}`);
+      }
+      if (stderr) {
+        console.error(`Script stderr: ${stderr}`);
+        return res.status(500).send(`Script stderr: ${stderr}`);
+      }
+      console.log(`Script stdout: ${stdout}`);
+      res.status(200).send(`Script executed successfully: ${stdout}`);
+    });
+  });
 });
 
 // شروع سرور

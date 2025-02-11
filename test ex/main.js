@@ -5,6 +5,7 @@ const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const saveButton = document.getElementById("save");
 const editButton = document.getElementById("edit");
+const runTestsButton = document.getElementById("runTests");
 const statusDiv = document.getElementById("status");
 const actionsDiv = document.getElementById("actions");
 const editActionsDiv = document.getElementById("editActions");
@@ -20,8 +21,10 @@ const maxLengthInput = document.getElementById("maxLengthInput");
 const containsDigitsInput = document.getElementById("containsDigitsInput");
 const allowedCharactersInput = document.getElementById("allowedCharactersInput");
 const rulesSaveButton = document.getElementById("rulesSave");
+const fileInput = document.createElement("input");
 
-const suggestions = ["abcdefghij", "!@#$%^&*()", "1234abcd"];
+fileInput.type = "file";
+fileInput.accept = "application/json";
 
 // شروع ضبط اقدامات
 startButton.addEventListener("click", () => {
@@ -226,5 +229,37 @@ chrome.runtime.onMessage.addListener((message) => {
     }
     displayActions();
     sendActionToServer(message.action);
+  }
+});
+
+// اجرای تست‌ها
+runTestsButton.addEventListener("click", () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const fileContent = e.target.result;
+        const response = await fetch('http://localhost:3000/run-tests', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fileContent })
+        });
+        if (!response.ok) {
+          throw new Error('Failed to run tests');
+        }
+        const result = await response.text();
+        alert(result);
+      } catch (error) {
+        alert("Error running tests. Please check your file.");
+      }
+    };
+    reader.readAsText(file);
   }
 });
