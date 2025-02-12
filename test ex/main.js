@@ -114,6 +114,7 @@ function displayActions() {
       <div class="d-flex justify-content-end mt-2">
         <button class="btn btn-sm btn-warning edit-btn"><i class="fas fa-edit"></i></button>
         <button class="btn btn-sm btn-success save-btn d-none"><i class="fas fa-check"></i></button>
+        <button class="btn btn-sm btn-danger delete-btn"><i class="fas fa-trash"></i></button>
       </div>
     </div>
   `).join("");
@@ -122,7 +123,7 @@ function displayActions() {
     actionsDiv.innerHTML = '<div class="text-center text-muted py-4">No actions recorded yet</div>';
   }
 
-  // اضافه کردن رویداد کلیک به دکمه‌های ویرایش و ذخیره
+  // اضافه کردن رویداد کلیک به دکمه‌های ویرایش، ذخیره و حذف
   document.querySelectorAll(".edit-btn").forEach((btn, index) => {
     btn.addEventListener("click", function () {
       let card = btn.closest(".action-card");
@@ -156,6 +157,13 @@ function displayActions() {
       card.querySelectorAll(".editable").forEach(el => el.contentEditable = "false");
       card.querySelector(".edit-btn").classList.remove("d-none");
       btn.classList.add("d-none");
+    });
+  });
+
+  document.querySelectorAll(".delete-btn").forEach((btn, index) => {
+    btn.addEventListener("click", function () {
+      actions.splice(index, 1);
+      displayActions();
     });
   });
 }
