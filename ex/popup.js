@@ -16,7 +16,7 @@ document.getElementById('config-form').addEventListener('submit', async function
 
     try {
         addLog("Submitting configuration form...");
-        const response = await fetch("http://127.0.0.1:8000/get_config/", {
+        const response = await fetch("http://localhost:3000/get_config", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,8 +26,8 @@ document.getElementById('config-form').addEventListener('submit', async function
 
         if (!response.ok) {
             const error = await response.json();
-            addLog(`Error saving configuration: ${error.detail[0]?.msg || "Unknown error"}`);
-            alert(`Error: ${error.detail[0]?.msg || "Unknown error"}`);
+            addLog(`Error saving configuration: ${error.message || "Unknown error"}`);
+            alert(`Error: ${error.message || "Unknown error"}`);
             return;
         }
 
@@ -60,14 +60,14 @@ document.getElementById('json-file').addEventListener('change', function (e) {
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch("http://127.0.0.1:8000/upload_config/", {
+    fetch("http://localhost:3000/upload_config", {
         method: "POST",
         body: formData
     })
         .then(response => response.json())
         .then(result => {
-            if (result.detail) {
-                throw new Error(result.detail);
+            if (result.message) {
+                throw new Error(result.message);
             }
             addLog("Configuration uploaded successfully!");
             alert("Configuration uploaded successfully!");
@@ -99,7 +99,7 @@ document.getElementById('run-crawler').addEventListener('click', function () {
         formData.append("depth", "2"); // عمق خزیدن
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/run-crawler/", {
+            const response = await fetch("http://localhost:3000/run-crawler", {
                 method: "POST",
                 body: formData,
             });
@@ -130,4 +130,16 @@ function addLog(message) {
     logMessage.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
     logsContainer.appendChild(logMessage);
     logsContainer.scrollTop = logsContainer.scrollHeight; // اسکرول به انتهای لاگ
+}
+
+// popup.js
+const logElement = document.getElementById('logs');
+
+function addLog(message) {
+    const logEntry = document.createElement('div');
+    logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+    logElement.appendChild(logEntry);
+    
+    // اسکرول خودکار به پایین
+    logElement.scrollTop = logElement.scrollHeight;
 }
