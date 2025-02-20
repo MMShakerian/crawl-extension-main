@@ -13,30 +13,30 @@ app = FastAPI()
 # مسیر فایل تنظیمات
 CONFIG_FILE = "db_config.json"
 
-class ConfigModel(BaseModel):
-    db_name: str = Field(..., pattern=r"^[^\u0600-\u06FF]+$", description="فارسی نزن")
-    collection_name: str = Field(..., pattern=r"^[^\u0600-\u06FF]+$", description="فارسی داره انگلیسی بزن")
-    url: str = Field(..., pattern=r"^(https?://)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(/.*)?$", description="Valid URL like www.example.com")
-    file_name: str = Field(..., pattern=r"^[a-zA-Z0-9_\-]+$")
+# class ConfigModel(BaseModel):
+#     db_name: str = Field(..., pattern=r"^[^\u0600-\u06FF]+$", description="فارسی نزن")
+#     collection_name: str = Field(..., pattern=r"^[^\u0600-\u06FF]+$", description="فارسی داره انگلیسی بزن")
+#     url: str = Field(..., pattern=r"^(https?://)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(/.*)?$", description="Valid URL like www.example.com")
+#     file_name: str = Field(..., pattern=r"^[a-zA-Z0-9_\-]+$")
 
 
-    @validator("db_name", pre=True, always=True)
-    def validate_db_name(cls, v, values, **kwargs):
-        if not v or not v.isascii():
-            raise ValueError("فارسی نزن")
-        return v
-    # اعتبارسنجی و پیام سفارشی برای collection_name
-    @validator("collection_name", pre=True, always=True)
-    def validate_collection_name(cls, v, values, **kwargs):
-        if not v or not v.isascii():
-            raise ValueError("فارسی داره انگلیسی بزن")
-        return v
+    # @validator("db_name", pre=True, always=True)
+    # def validate_db_name(cls, v, values, **kwargs):
+    #     if not v or not v.isascii():
+    #         raise ValueError("فارسی نزن")
+    #     return v
+    # # اعتبارسنجی و پیام سفارشی برای collection_name
+    # @validator("collection_name", pre=True, always=True)
+    # def validate_collection_name(cls, v, values, **kwargs):
+    #     if not v or not v.isascii():
+    #         raise ValueError("فارسی داره انگلیسی بزن")
+    #     return v
     
-    @validator("file_name", pre=True, always=True)
-    def validate_collection_name(cls, v, values, **kwargs):
-        if not v or not v.isascii():
-            raise ValueError("فارسی داره انگلیسی بزن")
-        return v
+    # @validator("file_name", pre=True, always=True)
+    # def validate_collection_name(cls, v, values, **kwargs):
+    #     if not v or not v.isascii():
+    #         raise ValueError("فارسی داره انگلیسی بزن")
+    #     return v
     
 
 
