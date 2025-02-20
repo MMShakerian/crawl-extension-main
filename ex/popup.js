@@ -7,6 +7,27 @@ document.getElementById('config-form').addEventListener('submit', async function
     const url = document.getElementById('url').value.trim();
     const fileName = document.getElementById('file-name').value.trim();
 
+    const persianRegex = /[\u0600-\u06FF]/;
+    const urlRegex = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?(\/.*)?$/;
+    const fileNameRegex = /^[a-zA-Z0-9_\-]+$/;
+
+    if (persianRegex.test(dbName)) {
+        alert('فارسی نزن');
+        return;
+    }
+    if (persianRegex.test(collectionName)) {
+        alert('فارسی داره انگلیسی بزن');
+        return;
+    }
+    if (!urlRegex.test(url)) {
+        alert('Valid URL like www.example.com');
+        return;
+    }
+    if (!fileNameRegex.test(fileName)) {
+        alert('نام فایل فقط می‌تواند شامل حروف انگلیسی، اعداد و آندرلاین باشد.');
+        return;
+    }
+
     const configData = {
         db_name: dbName,
         collection_name: collectionName,
@@ -132,7 +153,7 @@ function addLog(message) {
     logsContainer.scrollTop = logsContainer.scrollHeight; // اسکرول به انتهای لاگ
 }
 
-// popup.js
+
 const logElement = document.getElementById('logs');
 
 function addLog(message) {
