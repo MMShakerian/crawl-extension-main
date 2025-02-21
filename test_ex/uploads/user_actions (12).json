@@ -1,0 +1,356 @@
+[
+  {
+    "actionType": "click",
+    "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > section > div > div > div > section > div > div:nth-of-type(2) > div > div > div > div > nav > ul > li:nth-of-type(7) > div > a > div > div",
+    "label": null,
+    "timestamp": "2025-02-21T06:23:53.029Z",
+    "url": "https://khosravani.com/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_1",
+    "label": "نام و نام خانوادگی *",
+    "timestamp": "2025-02-21T06:25:16.557Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "معین",
+    "error_message": null,
+    "invalid_values": [
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_6",
+    "label": "نام پدر *",
+    "timestamp": "2025-02-21T06:25:23.692Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "علی",
+    "error_message": null,
+    "invalid_values": [
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_3",
+    "label": "کد ملی *",
+    "timestamp": "2025-02-21T06:25:31.774Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "0021433674",
+    "error_message": null,
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": 10,
+      "contains_digits": true,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_5",
+    "label": "شماره شناسنامه *",
+    "timestamp": "2025-02-21T06:26:03.607Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "0021433674",
+    "error_message": null,
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": 10,
+      "contains_digits": true,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_16",
+    "label": "تاریخ تولد *",
+    "timestamp": "2025-02-21T06:26:39.486Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "1403/02/05",
+    "error_message": null,
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_17",
+    "label": "تاریخ صدور شناسنامه *",
+    "timestamp": "2025-02-21T06:27:08.339Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "1403/02/05",
+    "error_message": null,
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": true,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_8",
+    "label": "استان محل تولد *",
+    "timestamp": "2025-02-21T06:27:30.318Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "تعران",
+    "error_message": null,
+    "invalid_values": [
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_9",
+    "label": "شهرستان محل تولد *",
+    "timestamp": "2025-02-21T06:28:02.508Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "تهران",
+    "error_message": null,
+    "invalid_values": [
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "click",
+    "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div > div > main > article > div > div > section:nth-of-type(2) > div:nth-of-type(2) > div > div > section > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div > form > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(10) > div > button",
+    "label": null,
+    "timestamp": "2025-02-21T06:28:13.970Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_21",
+    "label": "آدرس کامل محل سکونت *",
+    "timestamp": "2025-02-21T06:28:54.895Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "رسالت",
+    "error_message": null,
+    "invalid_values": [
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_50",
+    "label": "منطقه شهرداری *",
+    "timestamp": "2025-02-21T06:29:45.844Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "8",
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "error_message": null,
+    "rules": {
+      "max_length": 2,
+      "contains_digits": true,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_24",
+    "label": "کد پستی *",
+    "timestamp": "2025-02-21T06:30:04.620Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "1683848511",
+    "error_message": null,
+    "invalid_values": [
+      "abcdefghij",
+      "!@#$%^&*()",
+      "1234abcd"
+    ],
+    "rules": {
+      "max_length": 11,
+      "contains_digits": true,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "click",
+    "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div > div > main > article > div > div > section:nth-of-type(2) > div:nth-of-type(2) > div > div > section > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div > form > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div > button",
+    "label": null,
+    "timestamp": "2025-02-21T06:31:09.812Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_25",
+    "label": "تلفن همراه بنام *",
+    "timestamp": "2025-02-21T06:31:25.247Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "00 98 919 244 5052",
+    "error_message": null,
+    "invalid_values": [
+      "1234abcd",
+      "!@#$%^&*()",
+      "abcdefghij"
+    ]
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_27",
+    "label": "تلفن ثابت *",
+    "timestamp": "2025-02-21T06:33:24.927Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "00 98 21 7720 3096",
+    "invalid_values": [],
+    "error_message": null,
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "click",
+    "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div > div > main > article > div > div > section:nth-of-type(2) > div:nth-of-type(2) > div > div > section > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div > form > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div > button",
+    "label": null,
+    "timestamp": "2025-02-21T06:33:44.523Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "click",
+    "selector": "#wpforms-62004-field_37",
+    "label": "رنگ خودرو *",
+    "timestamp": "2025-02-21T06:34:04.733Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_37",
+    "label": "رنگ خودرو *",
+    "timestamp": "2025-02-21T06:34:06.061Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "invalid_values": [],
+    "error_message": null,
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_47_1",
+    "label": "مدیران خودرو",
+    "timestamp": "2025-02-21T06:34:20.680Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "مدیران خودرو",
+    "error_message": null,
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "click",
+    "selector": "#wpforms-62004-field_35",
+    "label": "محصولات مدیران خودرو (خسروانی 193) *",
+    "timestamp": "2025-02-21T06:34:46.469Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_35",
+    "label": "محصولات مدیران خودرو (خسروانی 193) *",
+    "timestamp": "2025-02-21T06:34:47.438Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "invalid_values": [],
+    "error_message": null,
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "input",
+    "selector": "#wpforms-62004-field_52_1",
+    "label": "استاد معین",
+    "timestamp": "2025-02-21T06:35:01.517Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": "استاد معین",
+    "error_message": null,
+    "rules": {
+      "max_length": null,
+      "contains_digits": false,
+      "allowed_characters": ""
+    }
+  },
+  {
+    "actionType": "click",
+    "selector": "body > div:nth-of-type(1) > div:nth-of-type(2) > div > div > main > article > div > div > section:nth-of-type(2) > div:nth-of-type(2) > div > div > section > div > div:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div > form > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(7) > div > button",
+    "label": null,
+    "timestamp": "2025-02-21T06:35:04.797Z",
+    "url": "https://khosravani.com/car-purchase-system/",
+    "value": null,
+    "error_message": null
+  }
+]

@@ -169,14 +169,15 @@ app.post('/run-crawler', (req, res) => {
   });
 });
 
-// مسیر برای اجرای تست‌ها
+
+
 app.post('/run-tests', (req, res) => {
   if (!req.files || !req.files.test_file) {
     return res.status(400).json({ error: 'No test file was uploaded.' });
   }
 
   const file = req.files.test_file;
-  const uploadPath = path.join(uploadDir, file.name);
+  const uploadPath = path.resolve(uploadDir, file.name); // استفاده از path.resolve
 
   file.mv(uploadPath, (err) => {
     if (err) {
@@ -184,11 +185,14 @@ app.post('/run-tests', (req, res) => {
       return res.status(500).json({ error: `Error uploading file: ${err.message}` });
     }
 
-    const scriptPath = path.resolve(__dirname, '../test_program/main.py');
+    const scriptPath = path.resolve(__dirname, '../test_ex/test_program/main.py'); // مسیر اسکریپت را تصحیح کن
 
+    // چاپ مسیرها برای بررسی
+    console.log("Script Path:", scriptPath);
+    console.log("Upload Path:", uploadPath);
 
-    exec(`python ${scriptPath} ${uploadPath}`, (error, stdout, stderr) => {
-
+    // اجرای فایل Python با نقل‌قول مناسب
+    exec(`python "${scriptPath}" "${uploadPath}"`, (error, stdout, stderr) => {
       if (error) {
         console.error(`Error executing test: ${error}`);
         return res.status(500).json({ error: `Error executing test: ${error.message}` });
@@ -202,6 +206,7 @@ app.post('/run-tests', (req, res) => {
     });
   });
 });
+
 
 // شروع سرور
 app.listen(PORT, () => {
