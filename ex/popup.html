@@ -1,90 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Configuration</title>
+    <title>پیکربندی پایگاه داده</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <style>
-        .custom-card {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .log-container {
-            max-height: 200px;
-            min-height: 200px;
-        }
-    </style> -->
 </head>
 <body class="bg-light">
     <div class="container py-5">
         <div class="card custom-card">
             <div class="card-header bg-primary text-white">
-                <h2 class="mb-0">Database Configuration</h2>
+                <h2 class="mb-0">پیکربندی پایگاه داده</h2>
             </div>
             
             <div class="card-body">
                 <form id="config-form">
                     <!-- فرم اصلی -->
                     <div class="mb-3">
-                        <label for="db-name" class="form-label fw-bold">Database Name:</label>
-                        <input type="text" class="form-control form-control-lg" id="db-name" placeholder="Enter database name" required>
+                        <label for="db-name" class="form-label fw-bold">نام پایگاه داده:</label>
+                        <input type="text" class="form-control form-control-lg" id="db-name" placeholder="نام پایگاه داده را وارد کنید" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="collection-name" class="form-label fw-bold">Collection Name:</label>
-                        <input type="text" class="form-control form-control-lg" id="collection-name" placeholder="Enter collection name" required>
+                        <label for="collection-name" class="form-label fw-bold">نام مجموعه:</label>
+                        <input type="text" class="form-control form-control-lg" id="collection-name" placeholder="نام مجموعه را وارد کنید" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="url" class="form-label fw-bold">URL:</label>
-                        <input type="url" class="form-control form-control-lg" id="url" placeholder="Enter URL" required>
+                        <label for="url" class="form-label fw-bold">آدرس URL:</label>
+                        <input type="url" class="form-control form-control-lg" id="url" placeholder="آدرس URL را وارد کنید" required>
                     </div>
 
                     <div class="mb-4">
-                        <label for="file-name" class="form-label fw-bold">File Name:</label>
-                        <input type="text" class="form-control form-control-lg" id="file-name" placeholder="Enter file name (e.g., config.json)" required>
+                        <label for="file-name" class="form-label fw-bold">نام فایل:</label>
+                        <input type="text" class="form-control form-control-lg" id="file-name" placeholder="نام فایل را وارد کنید (مثلاً config)" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg w-100">Save Configuration</button>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">ذخیره پیکربندی</button>
                 </form>
 
                 <hr class="my-4">
 
                 <!-- بخش آپلود فایل -->
                 <div class="mb-3">
-                    <label for="json-file" class="form-label fw-bold">Select Configuration File (JSON):</label>
+                    <label for="json-file" class="form-label fw-bold">انتخاب فایل پیکربندی (JSON):</label>
                     <input type="file" class="form-control" id="json-file" accept=".json">
                 </div>
 
                 <!-- بخش مسیر دایرکتوری -->
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" id="crawl-directory" placeholder="Enter directory path" required>
-                    <button class="btn btn-success btn-lg" type="button" id="run-crawler">Start Crawl and Fetch</button>
+                    <input type="text" class="form-control form-control-lg" id="crawl-directory" placeholder="مسیر دایرکتوری را وارد کنید" required>
+                    <button class="btn btn-success btn-lg" type="button" id="run-crawler">شروع خزش و دریافت</button>
                 </div>
             </div>
         </div>
 
         <!-- بخش لاگ‌ها -->
-<div class="card mt-4 custom-card">
-    <div class="card-header bg-secondary text-white">
-        <strong>Execution Logs</strong>
-    </div>
-    <div class="card-body p-0"> <!-- حذف padding برای نمایش صحیح اسکرول -->
-        <div class="log-container bg-dark text-white p-3">
-            <pre id="logs" class="mb-0" style="
-                white-space: pre-wrap;
-                word-wrap: break-word;
-                margin: 0;
-                overflow-x: hidden;
-                overflow-y: auto;
-                height: 200px;
-            "></pre>
+        <div class="card mt-4 custom-card">
+            <div class="card-header bg-secondary text-white">
+                <strong>گزارش‌های اجرا</strong>
+            </div>
+            <div class="card-body p-0"> <!-- حذف padding برای نمایش صحیح اسکرول -->
+                <div class="log-container bg-dark text-white p-3">
+                    <pre id="logs" class="mb-0" style="
+                        white-space: pre-wrap;
+                        word-wrap: break-word;
+                        margin: 0;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        height: 200px;
+                    "></pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

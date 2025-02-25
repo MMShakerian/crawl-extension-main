@@ -1,123 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
-  <title>User Action Tracker</title>
+  <title>پیگیر اقدامات کاربر</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-color: #4a90e2;
-      --danger-color: #e94b3c;
-      --success-color: #6ac259;
-      --warning-color: #f5a623;
-    }
-    body {
-      background-color: #f8f9fa;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-    }
-    .header {
-      background: linear-gradient(135deg, var(--primary-color), #2d6da3);
-      color: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-    }
-    #actions {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-      min-height: 400px;
-    }
-    .action-card {
-      background: #fff;
-      border-left: 4px solid var(--primary-color);
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-radius: 8px;
-      transition: transform 0.2s;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .action-card:hover {
-      transform: translateX(5px);
-    }
-    .badge {
-      font-size: 0.8em;
-      padding: 0.35em 0.6em;
-      letter-spacing: 0.5px;
-    }
-    .modal-content {
-      border-radius: 12px;
-      border: none;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .suggestion {
-      background-color: var(--primary-color);
-      color: white !important;
-      border-radius: 20px;
-      transition: all 0.2s;
-      margin: 3px;
-    }
-    #status {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      font-weight: 600;
-      border: 2px solid var(--primary-color);
-    }
-    .recording {
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(74,144,226,0.5); }
-      70% { box-shadow: 0 0 0 12px rgba(74,144,226,0); }
-      100% { box-shadow: 0 0 0 0 rgba(74,144,226,0); }
-    }
-    #editTextarea {
-      font-family: 'Courier New', Courier, monospace;
-      border-radius: 8px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
 </head>
 <body class="container-lg">
   <!-- هدر -->
   <div class="header">
-    <h1 class="mb-0"><i class="fas fa-user-edit me-2"></i>User Action Tracker</h1>
+    <h1 class="mb-0"><i class="fas fa-user-edit me-2"></i>پیگیر اقدامات کاربر</h1>
   </div>
 
   <!-- دکمه‌ها -->
   <div class="d-flex gap-3 mb-4 flex-wrap">
     <button id="start" class="btn btn-lg btn-primary px-4">
-      <i class="fas fa-play me-2"></i>Start
+      <i class="fas fa-play me-2"></i>شروع
     </button>
     <button id="stop" class="btn btn-lg btn-danger px-4" disabled>
-      <i class="fas fa-stop me-2"></i>Stop
+      <i class="fas fa-stop me-2"></i>توقف
     </button>
     <button id="save" class="btn btn-lg btn-success px-4" disabled>
-      <i class="fas fa-save me-2"></i>Save
+      <i class="fas fa-save me-2"></i>ذخیره
     </button>
     <button id="edit" class="btn btn-lg btn-warning px-4">
-      <i class="fas fa-edit me-2"></i>Edit
+      <i class="fas fa-edit me-2"></i>ویرایش
     </button>
     <button id="runTests" class="btn btn-lg btn-info px-4">
-      <i class="fas fa-play-circle me-2"></i>Run Tests
+      <i class="fas fa-play-circle me-2"></i>اجرای آزمایش‌ها
     </button>
   </div>
 
   <!-- وضعیت -->
   <div id="status" class="mb-4">
-    <span class="text-muted">Status:</span>
-    <span id="statusText">Not Recording</span>
+    <span class="text-muted">وضعیت:</span>
+    <span id="statusText">در حال ضبط نیست</span>
   </div>
 
   <!-- اقدامات ثبت شده -->
-  <h4 class="mb-3"><i class="fas fa-history me-2"></i>Recorded Actions</h4>
+  <h4 class="mb-3"><i class="fas fa-history me-2"></i>اقدامات ثبت‌شده</h4>
   <div id="actions">
-    <div class="text-center text-muted py-4">No actions recorded yet</div>
+    <div class="text-center text-muted py-4">هنوز هیچ اقدامی ثبت نشده است</div>
   </div>
 
   <!-- ویرایش اقدامات -->
@@ -125,10 +49,10 @@
     <textarea id="editTextarea" class="form-control mb-3"></textarea>
     <div class="d-flex gap-2">
       <button id="saveEdit" class="btn btn-primary">
-        <i class="fas fa-check me-2"></i>Save Changes
+        <i class="fas fa-check me-2"></i>ذخیره تغییرات
       </button>
       <button id="cancelEdit" class="btn btn-secondary">
-        <i class="fas fa-times me-2"></i>Cancel
+        <i class="fas fa-times me-2"></i>لغو
       </button>
     </div>
   </div>
@@ -138,15 +62,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="fas fa-exclamation-triangle me-2"></i>Invalid Values</h5>
+          <h5 class="modal-title"><i class="fas fa-exclamation-triangle me-2"></i>مقادیر نامعتبر</h5>
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label class="form-label">Invalid Values (comma-separated) مقادیر نامعتبر (با کاما جدا شده):</label>
+            <label class="form-label">مقادیر نامعتبر (با کاما جدا شده):</label>
             <input type="text" id="invalidValuesInput" class="form-control">
           </div>
           <div class="mb-3">
-            <label class="form-label">Suggestions: (پیشنهادات)</label>
+            <label class="form-label">پیشنهادات:</label>
             <div class="d-flex flex-wrap" id="invalidValuesSuggestions">
               <button class="btn btn-sm suggestion">abcdefghij</button>
               <button class="btn btn-sm suggestion">!@#$%^&*()</button>
@@ -155,7 +79,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button id="invalidValuesSave" class="btn btn-primary">Save</button>
+          <button id="invalidValuesSave" class="btn btn-primary">ذخیره</button>
         </div>
       </div>
     </div>
@@ -165,24 +89,24 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="fas fa-ruler me-2"></i>Enter Rules</h5>
+          <h5 class="modal-title"><i class="fas fa-ruler me-2"></i>وارد کردن قوانین</h5>
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label class="form-label">Max Length(حداکثر طول):</label>
-            <input type="number" id="maxLengthInput" class="form-control" placeholder="Enter max length">
+            <label class="form-label">حداکثر طول:</label>
+            <input type="number" id="maxLengthInput" class="form-control" placeholder="حداکثر طول را وارد کنید">
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" id="containsDigitsInput" class="form-check-input">
-            <label class="form-check-label" for="containsDigitsInput">Contains Digits (شامل ارقام)</label>
+            <label class="form-check-label" for="containsDigitsInput">شامل ارقام</label>
           </div>
           <div class="mb-3">
-            <label class="form-label">Allowed Characters (regex) (کاراکترهای مجاز (عبارت منظم)) :</label>
-            <input type="text" id="allowedCharactersInput" class="form-control" placeholder="Enter allowed characters regex">
+            <label class="form-label">کاراکترهای مجاز (عبارت منظم):</label>
+            <input type="text" id="allowedCharactersInput" class="form-control" placeholder="عبارت منظم کاراکترهای مجاز را وارد کنید">
           </div>
         </div>
         <div class="modal-footer">
-          <button id="rulesSave" class="btn btn-primary">Save</button>
+          <button id="rulesSave" class="btn btn-primary">ذخیره</button>
         </div>
       </div>
     </div>
