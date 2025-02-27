@@ -1,0 +1,19 @@
+{
+    "url": "https://khosravani.com/car-purchase-system/",
+    "actions": [
+        
+        {
+            "action": "input",
+            "selector": "#wpforms-62004-field_3",
+            "value": "34567890",
+            "invalid_values": [
+                "1234abcd"
+            ],
+            "rules": {
+                "max_length": 4,
+                "contains_digits": true,
+                "allowed_characters": ""
+            }
+        }
+    ]
+}
