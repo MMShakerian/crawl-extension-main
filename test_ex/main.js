@@ -162,7 +162,7 @@ function displayActions() {
 
   document.querySelectorAll(".delete-btn").forEach((btn, index) => {
     btn.addEventListener("click", function () {
-      const shouldDelete = confirm("Are you sure you want to delete this action? (آیا از حذف این اقدام مطمئن هستید؟)");
+      const shouldDelete = confirm("آیا از حذف این اقدام مطمئن هستید؟");
       if (shouldDelete) {
         actions.splice(index, 1);
         displayActions();

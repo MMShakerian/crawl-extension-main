@@ -16,16 +16,18 @@ document.addEventListener("input", (event) => {
 // افزودن رویداد برای کلیک‌ها
 document.addEventListener("click", (event) => {
   const target = event.target;
-  const action = {
-    actionType: target.tagName.toLowerCase() === "input" || target.tagName.toLowerCase() === "textarea" ? "input" : "click",
-    selector: getUniqueSelector(target),
-    label: getLabel(target),
-    timestamp: new Date().toISOString(),
-    url: window.location.href,
-    value: target.tagName.toLowerCase() === "input" || target.tagName.toLowerCase() === "textarea" ? target.value : null,
-    error_message: null // مقداردهی اولیه با null
-  };
-  chrome.runtime.sendMessage({ type: "recordAction", action });
+  if (target.tagName.toLowerCase() !== "input" && target.tagName.toLowerCase() !== "textarea") {
+    const action = {
+      actionType: "click",
+      selector: getUniqueSelector(target),
+      label: getLabel(target),
+      timestamp: new Date().toISOString(),
+      url: window.location.href,
+      value: null,
+      error_message: null // مقداردهی اولیه با null
+    };
+    chrome.runtime.sendMessage({ type: "recordAction", action });
+  }
 });
 
 // تابع برای دریافت selector یکتا
